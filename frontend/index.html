@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quickzy Cleaning Services | Sydney Commercial & Office Cleaning</title>
+  <meta name="description" content="Quickzy Cleaning Services provides reliable commercial, office, and strata cleaning across Sydney. Request a free quote today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#1E90FF; /* dodger blue */
+      --primary-dark:#1876d1;
+      --accent:#22c55e; /* green */
+      --ink:#0f172a; /* slate-900 */
+      --muted:#475569; /* slate-600 */
+      --bg:#f8fafc; /* slate-50 */
+      --card:#ffffff;
+      --ring: rgba(30,144,255,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);}
+    a{color:var(--primary);text-decoration:none}
+    img{max-width:100%;display:block}
+    /* layout */
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid rgba(15,23,42,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:800;letter-spacing:.2px}
+    .brand__logo{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#60a5fa)}
+    .brand__logo span{font-weight:800;color:#fff}
+    .nav a.btn{margin-left:10px}
+
+    /* buttons */
+    .btn{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;border:1px solid transparent;border-radius:14px;padding:12px 16px;font-weight:600;transition:.2s}
+    .btn--primary{background:var(--primary);color:#fff}
+    .btn--primary:hover{background:var(--primary-dark)}
+    .btn--ghost{background:transparent;border-color:rgba(15,23,42,.12);color:var(--ink)}
+    .btn--ghost:hover{border-color:rgba(15,23,42,.2)}
+
+    /* hero */
+    .hero{position:relative}
+    .hero__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:64px 0}
+    .kicker{display:inline-block;background:#e8f1ff;color:#0b3b8c;font-weight:700;letter-spacing:.6px;border-radius:999px;padding:8px 14px;font-size:12px;margin-bottom:16px}
+    h1{font-size:clamp(30px,5vw,56px);line-height:1.05;margin:0 0 12px}
+    .lead{font-size:clamp(16px,2.2vw,20px);color:var(--muted);margin:0 0 24px}
+    .hero__actions{display:flex;flex-wrap:wrap;gap:12px}
+    .checks{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;color:var(--muted)}
+    .checks span{display:flex;align-items:center;gap:8px}
+    .hero__art{position:relative}
+    .card{background:var(--card);border:1px solid rgba(15,23,42,.06);border-radius:var(--radius);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+    .art__stack{display:grid;gap:16px}
+
+    /* trust bar */
+    .trust{padding:22px 0;border-top:1px solid rgba(15,23,42,.06);border-bottom:1px solid rgba(15,23,42,.06);background:#fff}
+    .trust__row{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:center;color:#0b3b8c;font-weight:600}
+
+    /* sections */
+    section{padding:72px 0}
+    .section__head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}
+    h2{font-size:clamp(24px,3.4vw,36px);margin:0}
+    .sub{color:var(--muted)}
+
+    /* services grid */
+    .grid{display:grid;gap:18px}
+    .grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .service{padding:22px;border-radius:16px;border:1px solid rgba(15,23,42,.06);background:#fff}
+    .service h3{margin:10px 0 6px;font-size:18px}
+    .service p{margin:0;color:var(--muted);font-size:14px}
+
+    /* feature cards */
+    .feature{display:flex;gap:14px;padding:18px;border-radius:16px;border:1px solid rgba(15,23,42,.06);background:#fff}
+    .feature__icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#eef6ff}
+
+    /* steps */
+    .steps{counter-reset:step}
+    .step{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid rgba(15,23,42,.06);border-radius:16px;background:#fff}
+    .step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#e8f1ff;color:#0b3b8c;font-weight:700}
+
+    /* team */
+    .team{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .member{padding:20px;border-radius:16px;border:1px solid rgba(15,23,42,.06);background:#fff;text-align:center}
+    .avatar{width:82px;height:82px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,#e2e8f0,#f8fafc);display:grid;place-items:center;font-weight:800;color:#0b3b8c}
+
+    /* contact */
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    form{display:grid;gap:12px}
+    .field{display:grid;gap:6px}
+    input,textarea{padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;font:inherit}
+    input:focus,textarea:focus{outline:none;box-shadow:0 0 0 4px var(--ring)}
+
+    /* footer */
+    footer{margin-top:24px;background:#0b3b8c;color:#e6f0ff}
+    .footgrid{display:grid;gap:22px;grid-template-columns:2fr 1fr 1fr}
+    .tiny{color:#bcd3ff;font-size:14px}
+    .copyright{border-top:1px solid rgba(255,255,255,.18);padding:16px 0;margin-top:10px;color:#cfe0ff;font-size:14px}
+
+    /* responsive */
+    @media (max-width: 1000px){
+      .hero__grid, .contact{grid-template-columns:1fr}
+    }
+    @media (max-width: 800px){
+      .grid--4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .team{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width: 560px){
+      .grid--4,.grid--3{grid-template-columns:1fr}
+      .team{grid-template-columns:1fr}
+      .nav .hide-sm{display:none}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Quickzy Cleaning Services",
+    "image":"",
+    "url":"",
+    "telephone":"+61452106017",
+    "email":"quickzycleaning@gmail.com",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Sydney",
+      "addressRegion":"NSW",
+      "addressCountry":"AU"
+    },
+    "areaServed":"Sydney",
+    "founder":"Pushpa Bhandari",
+    "department":"Commercial Cleaning"
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Quickzy Cleaning Services home">
+        <div class="brand__logo" aria-hidden="true"><span>Q</span></div>
+        <div>
+          <div style="font-size:16px">Quickzy</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:-2px">Cleaning Services</div>
+        </div>
+      </a>
+      <nav>
+        <a class="hide-sm" href="#services">Services</a>
+        <a class="hide-sm" href="#why">Why us</a>
+        <a class="hide-sm" href="#process">Process</a>
+        <a class="hide-sm" href="#team">Team</a>
+        <a class="hide-sm" href="#contact">Contact</a>
+        <a class="btn btn--ghost" href="tel:+61452106017">Call +61 452 106 017</a>
+        <a class="btn btn--primary" href="#quote">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="container hero__grid">
+      <div>
+        <span class="kicker">Sydney • Commercial & Office Cleaning</span>
+        <h1>Immaculate spaces, zero hassle.</h1>
+        <p class="lead">Quickzy Cleaning Services keeps your office, strata, retail and industrial sites spotless with reliable schedules, vetted cleaners and quality control built in.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="tel:+61452106017">Call now</a>
+          <a class="btn btn--ghost" href="mailto:quickzycleaning@gmail.com">Email us</a>
+        </div>
+        <div class="checks" aria-label="Highlights">
+          <span>✔ Police-checked staff</span>
+          <span>✔ Eco-friendly products</span>
+          <span>✔ Flexible after-hours</span>
+        </div>
+      </div>
+      <div class="hero__art">
+        <div class="art__stack">
+          <div class="card" style="padding:18px">
+            <strong>Free Site Assessment</strong>
+            <p class="sub" style="margin:6px 0 0">We tailor a cleaning plan to your building and budget.</p>
+          </div>
+          <div class="card" style="padding:18px">
+            <strong>Quality Guarantee</strong>
+            <p class="sub" style="margin:6px 0 0">If something's not right, we fix it within 24 hours.</p>
+          </div>
+          <div class="card" style="padding:18px">
+            <strong>All Sydney Suburbs</strong>
+            <p class="sub" style="margin:6px 0 0">From CBD to Parramatta, North Shore to Sutherland.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust">
+      <div class="container trust__row">
+        <span>Insured</span>·<span>Background-checked</span>·<span>OH&S Compliant</span>·<span>Locally Operated</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2>Our cleaning services</h2>
+          <p class="sub">Comprehensive solutions for all commercial spaces.</p>
+        </div>
+        <a class="btn btn--ghost" href="#quote">Request a free quote</a>
+      </div>
+      <div class="grid grid--4">
+        <div class="service">
+          <h3>End of lease</h3>
+          <p>Detailed vacate cleans for handover readiness.</p>
+        </div>
+        <div class="service">
+          <h3>Commercial & Retail</h3>
+          <p>Showrooms, shops and hospitality front/back of house.</p>
+        </div>
+        <div class="service">
+          <h3>Strata & Common Areas</h3>
+          <p>Lobbies, lifts, car parks, glass, pressure wash.</p>
+        </div>
+        <div class="service">
+          <h3>Carpet & Floor Care</h3>
+          <p>Steam clean, machine scrub, seal & polish programs.</p>
+        </div>
+        <div class="service">
+          <h3>Medical & Clinics</h3>
+          <p>Clinical touchpoint disinfection and waste handling.</p>
+        </div>
+        <div class="service">
+          <h3>Education Facilities</h3>
+          <p>Schools, childcare—safe, consistent and secure.</p>
+        </div>
+        <div class="service">
+<<<<<<< HEAD:frontend/index.html
+          <h3>End-of-Lease</h3>
+          <p>Detailed vacate cleans for handover readiness.</p>
+=======
+          <h3>Office Cleaning</h3>
+          <p>Daily/weekly cleans, kitchens, desks, bins, bathrooms.</p>
+>>>>>>> ff697bf4a9a7d158ea42a82d3dc08856e1bcd779:index.html
+        </div>
+        <div class="service">
+          <h3>Industrial & Warehouses</h3>
+          <p>High-dusting, machine areas and amenities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why" style="background:#fff">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2>Why businesses choose Quickzy</h2>
+          <p class="sub">A dependable, Sydney-based team led by experienced owners.</p>
+        </div>
+      </div>
+      <div class="grid grid--3">
+        <div class="feature">
+          <div class="feature__icon">🧹</div>
+          <div>
+            <strong>Tailored checklists</strong>
+            <p class="sub">Site-specific scopes aligned to your compliance needs.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">✅</div>
+          <div>
+            <strong>Quality audits</strong>
+            <p class="sub">Regular inspections with report-backs and action tracking.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🕒</div>
+          <div>
+            <strong>After-hours friendly</strong>
+            <p class="sub">We work around your opening hours with minimal disruption.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🌱</div>
+          <div>
+            <strong>Green products</strong>
+            <p class="sub">Low-tox, eco-label supplies safe for staff and visitors.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🧾</div>
+          <div>
+            <strong>Transparent pricing</strong>
+            <p class="sub">Clear proposals—no hidden extras or lock-in surprises.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🛡️</div>
+          <div>
+            <strong>Fully insured</strong>
+            <p class="sub">Public liability & workers comp for complete peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2>Our simple process</h2>
+          <p class="sub">From first call to first clean in as little as 72 hours.</p>
+        </div>
+      </div>
+      <div class="grid grid--3 steps">
+        <div class="step">
+          <div>
+            <strong>Book a walkthrough</strong>
+            <p class="sub">We inspect your site and define scope, frequency and KPIs.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <strong>Receive your quote</strong>
+            <p class="sub">A clear proposal with inclusions, schedule and pricing.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <strong>Onboard & start</strong>
+            <p class="sub">We assign trained staff and commence with quality checks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" style="background:#fff">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2>Leadership</h2>
+          <p class="sub">A hands-on management team available when you need us.</p>
+        </div>
+      </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote / Contact -->
+  <section id="quote" style="background:linear-gradient(180deg,#ffffff, #f2f7ff)">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2>Request a free quote</h2>
+          <p class="sub">Tell us about your site and preferred schedule.</p>
+        </div>
+      </div>
+      <div class="contact">
+        <form id="quoteForm" action="#" method="post" class="card" style="padding:18px">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" placeholder="e.g. Alex from ACME Pty Ltd" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="you@company.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" placeholder="e.g. 04xx xxx xxx">
+          </div>
+          <div class="field">
+            <label for="serviceType">Service Type</label>
+            <select id="serviceType" name="serviceType" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="Office Cleaning">Office Cleaning</option>
+              <option value="Commercial Cleaning">Commercial Cleaning</option>
+              <option value="Medical Cleaning">Medical Cleaning</option>
+              <option value="End-of-Lease">End-of-Lease</option>
+              <option value="Strata Cleaning">Strata Cleaning</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">What do you need cleaned?</label>
+            <textarea id="message" name="message" rows="5" placeholder="Office size, frequency, start date…" required></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Send request</button>
+          <p class="tiny">By sending, you consent to be contacted about your enquiry.</p>
+          <div id="formMessage" class="message"></div>
+        </form>
+        <aside class="card" style="padding:22px">
+          <h3 style="margin:0 0 6px">Contact</h3>
+          <p class="sub" style="margin:0 0 10px">Sydney, Australia</p>
+          <p style="margin:0 0 8px"><strong>Phone:</strong> <a href="tel:+61452106017">+61 452 106 017</a></p>
+          <p style="margin:0 0 8px"><strong>Email:</strong> <a href="mailto:quickzycleaning@gmail.com">quickzycleaning@gmail.com</a></p>
+          <hr style="border:none;border-top:1px solid #e2e8f0;margin:16px 0">
+          <p class="tiny">Business hours: 24HR • After-hours cleans available</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="padding:28px 0 10px">
+      <div class="footgrid">
+        <div>
+          <div class="brand" style="margin-bottom:8px">
+            <div class="brand__logo" aria-hidden="true"><span>Q</span></div>
+            <div>
+              <div style="font-size:16px;color:#fff">Quickzy Cleaning Services</div>
+              <div class="tiny">Sydney, Australia</div>
+            </div>
+          </div>
+          <p class="tiny">Professional commercial, office and strata cleaning across Sydney. Eco-friendly products, insured and background-checked crew.</p>
+        </div>
+        <div>
+          <strong>Company</strong>
+          <ul class="tiny" style="list-style:none;padding:0;margin:10px 0 0">
+            <li>CEO: Pushpa Bhandari</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Get in touch</strong>
+          <ul class="tiny" style="list-style:none;padding:0;margin:10px 0 0">
+            <li><a style="color:#e6f0ff" href="tel:+61452106017">+61 452 106 017</a></li>
+            <li><a style="color:#e6f0ff" href="mailto:quickzycleaning@gmail.com">quickzycleaning@gmail.com</a></li>
+            <li><a style="color:#e6f0ff" href="#quote">Request a quote</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">© <span id="y"></span> Quickzy Cleaning Services. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script src="js/form.js"></script>
+</body>
+</html>
